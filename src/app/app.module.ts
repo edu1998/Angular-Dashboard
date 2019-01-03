@@ -45,7 +45,6 @@ import {
 } from '@angular/material';
 import { PruebaComponent } from './prueba/prueba.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
-import { LayoutModule } from '@angular/cdk/layout';
 
 
 @NgModule({
