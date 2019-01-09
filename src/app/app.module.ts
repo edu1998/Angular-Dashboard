@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -45,13 +45,15 @@ import {
 } from '@angular/material';
 import { PruebaComponent } from './prueba/prueba.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { FormComponent } from './form/form.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PruebaComponent,
-    SidenavComponent
+    SidenavComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
