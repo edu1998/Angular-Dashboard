@@ -7,20 +7,39 @@
             <div class="example-container">
                 <mat-form-field appearance="outline">
                     <mat-label>Name</mat-label>
-                    <input matInput="matInput" [(ngModel)]="data.name" #name="ngModel" name="name" type="text" placeholder="Name" required>
+                    <input matInput="matInput" [(ngModel)]="data.name" #name="ngModel" name="name" type="text" placeholder="Name" required  [ngClass]="{ 'ng-untouched': formRe.submitted && name.invalid }">
                     <mat-error *ngIf="formRe.submitted && name.invalid">
-                        requerido
+                        <span *ngIf="name.errors.required">Name is required</span>
                     </mat-error>
                 </mat-form-field>
 
                 <mat-form-field appearance="outline">
                     <mat-label>Last name</mat-label>
-                    <input matInput="matInput" type="text" placeholder="Last name" required>
+                    <input matInput="matInput" type="text" [(ngModel)]="data.last" #last="ngModel" name="last" placeholder="Last name" required minlength="6" pattern="^[\w\s-]+$">
+                    <mat-error *ngIf="formRe.submitted && last.invalid">
+                        <span *ngIf="last.errors.required">
+                            Last name is require
+                        </span>
+                        <span *ngIf="last.errors.minlength">
+                            Last names character min 6
+                        </span>
+                        <span *ngIf="last.errors.pattern">
+                            not accept symbol
+                        </span>
+                    </mat-error>
                 </mat-form-field>
 
                 <mat-form-field appearance="outline">
                     <mat-label>Email</mat-label>
-                    <input matInput="matInput" type="email" placeholder="Email" required>
+                    <input matInput="matInput" name="email" [(ngModel)]="data.email" #email="ngModel" type="text" placeholder="Email" required email>
+                    <mat-error *ngIf="formRe.submitted && email.invalid">
+                            <span *ngIf="email.errors.required">
+                                Email is require
+                            </span>
+                            <span *ngIf="email.errors.email">
+                                Email is invalid
+                            </span>
+                        </mat-error>
                 </mat-form-field>
 
                 <mat-form-field appearance="outline">
