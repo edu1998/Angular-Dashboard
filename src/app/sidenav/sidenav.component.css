@@ -15,3 +15,16 @@
   top: 0;
   z-index: 1;
 }
+
+.disconnect {
+  color: rgb(185, 31, 31);
+}
+
+.connect {
+  color: rgb(33, 175, 33);
+}
+
+footer{
+  position: fixed;
+  bottom: 0px
+}

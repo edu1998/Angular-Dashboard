@@ -1,10 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -46,6 +45,12 @@ import {
 import { PruebaComponent } from './prueba/prueba.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { FormComponent } from './form/form.component';
+import { TablasSocketComponent } from './tablas-socket/tablas-socket.component';
+import { ServicesModule } from './services/services.module';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
+const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
 
 
 @NgModule({
@@ -53,7 +58,8 @@ import { FormComponent } from './form/form.component';
     AppComponent,
     PruebaComponent,
     SidenavComponent,
-    FormComponent
+    FormComponent,
+    TablasSocketComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +67,7 @@ import { FormComponent } from './form/form.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    SocketIoModule.forRoot(config),
     MatAutocompleteModule,
     MatBadgeModule,
     MatBottomSheetModule,
@@ -97,6 +104,8 @@ import { FormComponent } from './form/form.component';
     MatTooltipModule,
     MatTreeModule,
     MatFormFieldModule,
+    FlexLayoutModule,
+    ServicesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

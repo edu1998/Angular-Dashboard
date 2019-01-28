@@ -1,0 +1,45 @@
+<div fxLayout="row wrap" fxLayoutGap="30px">
+  <div fxFlex>
+    <h1>enviar datos</h1>
+    <form #formRe="ngForm" (ngSubmit)="formRe.form.valid && send()" name="formRe" novalidate>
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput="matInput" [(ngModel)]="data.name" #name="ngModel" name="name" type="text" placeholder="Name"
+          required [ngClass]="{ 'ng-untouched': formRe.submitted && name.invalid }">
+        <mat-error *ngIf="formRe.submitted && name.invalid">
+          <span *ngIf="name.errors.required">Name is required</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Age</mat-label>
+        <input matInput="matInput" [(ngModel)]="data.age" #age="ngModel" age="age" name="age" type="number" placeholder="Age"
+          required [ngClass]="{ 'ng-untouched': formRe.submitted && age.invalid }">
+        <mat-error *ngIf="formRe.submitted && age.invalid">
+          <span *ngIf="age.errors.required">Age is required</span>
+        </mat-error>
+      </mat-form-field>
+      <br>
+      <button mat-raised-button type="submit">
+        Send
+      </button>
+    </form>
+  </div>
+  <div fxFlex>
+    <h1>mostrar datos</h1>
+    <mat-card class="content-registros" id="c_registros">
+      <mat-card-header>
+        <mat-card-title>Lista de datos</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          <h3 mat-subheader>registros</h3>
+          <mat-list-item *ngFor="let registro of registros">
+            <h4 mat-line>{{registro.name}}</h4>
+            <p mat-line> {{registro.age}} </p>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
