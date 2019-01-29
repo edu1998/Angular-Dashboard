@@ -33,7 +33,10 @@ export class FormComponent implements OnInit {
     ];
 
     this.data = {
-      name:""
+      name:"",
+      lastname:"",
+      email:"",
+      pass:"",
     }
   }
 

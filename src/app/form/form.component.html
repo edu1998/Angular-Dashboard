@@ -7,7 +7,7 @@
             <div class="example-container">
                 <mat-form-field appearance="outline">
                     <mat-label>Name</mat-label>
-                    <input matInput="matInput" [(ngModel)]="data.name" #name="ngModel" name="name" type="text" placeholder="Name" required>
+                    <input matInput [(ngModel)]="data.name" #name="ngModel" name="name" [ngClass]="{ 'is-invalid': formRe.submitted && name.invalid }" type="text" placeholder="Name" required>
                     <mat-error *ngIf="formRe.submitted && name.invalid">
                         requerido
                     </mat-error>
@@ -15,17 +15,24 @@
 
                 <mat-form-field appearance="outline">
                     <mat-label>Last name</mat-label>
-                    <input matInput="matInput" type="text" placeholder="Last name" required>
+                    <input matInput [(ngModel)]="data.lastname" name="lastname" #lastname="ngModel" type="text" placeholder="Last name" required>
+                    <mat-error *ngIf="formRe.submitted && lastname.invalid">
+                        requerido
+                    </mat-error>
                 </mat-form-field>
 
                 <mat-form-field appearance="outline">
                     <mat-label>Email</mat-label>
-                    <input matInput="matInput" type="email" placeholder="Email" required>
+                    <input matInput [(ngModel)]="data.email" #email="ngModel" name="email" type="text" placeholder="Email" email required>
+                    <mat-error *ngIf="formRe.submitted && email.invalid ">
+                        <div *ngIf="email.errors.required">Email is required</div>
+                        <div *ngIf="email.errors.email">Email is invaid</div>
+                    </mat-error>
                 </mat-form-field>
 
                 <mat-form-field appearance="outline">
                     <mat-label>Yours life</mat-label>
-                    <textarea matInput="matInput" placeholder="Yours life" required></textarea>
+                    <textarea matInput placeholder="Yours life" required></textarea>
                 </mat-form-field>
 
                 <mat-form-field appearance="outline">
@@ -39,12 +46,20 @@
 
                 <mat-form-field appearance="outline">
                     <mat-label>Password</mat-label>
-                    <input matInput="matInput" name="password" type="Password" placeholder="Password" required>
+                    <input matInput [(ngModel)]="data.pass" #pass="ngModel" name="password" type="Password" placeholder="Password" required minlength="6">
+                    <mat-error *ngIf="formRe.submitted && pass.invalid">
+                        <div *ngIf="pass.errors.required">
+                            passwors is required
+                        </div>
+                        <div *ngIf="pass.errors.minlength">
+                            Min 6 charter
+                        </div>
+                    </mat-error>
                 </mat-form-field>
 
                 <mat-form-field appearance="outline">
                     <mat-label>Confirm password</mat-label>
-                    <input matInput="matInput" type="password" name="conPassword" placeholder="Confirm password" required>
+                    <input matInput type="password" name="conPassword" placeholder="Confirm password" required>
                     <!-- <mat-error *ngIf="conPassword.errors.mustMatch">
                         Las contraseñas no coinciden
                     </mat-error> -->
