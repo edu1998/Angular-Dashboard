@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -45,13 +44,26 @@ import {
 } from '@angular/material';
 import { PruebaComponent } from './prueba/prueba.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { FormComponent } from './form/form.component';
+import { TablasSocketComponent } from './tablas-socket/tablas-socket.component';
+import { ServicesModule } from './services/services.module';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { GraficaComponent } from './grafica/grafica.component';
+import { ChartsModule } from 'ng2-charts';
+
+
+const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PruebaComponent,
-    SidenavComponent
+    SidenavComponent,
+    FormComponent,
+    TablasSocketComponent,
+    GraficaComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +71,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    SocketIoModule.forRoot(config),
     MatAutocompleteModule,
     MatBadgeModule,
     MatBottomSheetModule,
@@ -95,6 +108,9 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     MatTooltipModule,
     MatTreeModule,
     MatFormFieldModule,
+    FlexLayoutModule,
+    ServicesModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
