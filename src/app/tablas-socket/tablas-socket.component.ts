@@ -33,10 +33,10 @@ export class TablasSocketComponent implements OnInit, OnDestroy {
       }, 50);
     });
 
-    // this.socket_Service.holaService();
-    // this.socket_Service.get().subscribe((resp) => {
-    //   console.log(resp);
-    // });
+    this.socket_Service.escuchar('hola-get').subscribe(data => {
+      console.log(data);
+    });
+
   }
 
   ngOnDestroy() {

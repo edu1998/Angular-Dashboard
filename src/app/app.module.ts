@@ -53,7 +53,7 @@ import { GraficaComponent } from './grafica/grafica.component';
 import { ChartsModule } from 'ng2-charts';
 
 
-const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
+const config: SocketIoConfig = { url: 'http://localhost:1001', options: {} };
 
 
 @NgModule({

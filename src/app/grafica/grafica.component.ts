@@ -1,3 +1,4 @@
+import { TablasocketService } from './../services/tabla-socket/tablasocket.service';
 import { Component, OnInit } from '@angular/core';
 import { GraficaService } from './../services/graficas/grafica.service';
 
@@ -14,10 +15,18 @@ export class GraficaComponent implements OnInit {
   public lineChartLabels: Array<any> = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Macho'];
 
   constructor(
-    private graficasS: GraficaService
+    private graficasS: GraficaService,
+    private Socket_Service: TablasocketService
   ) { }
 
+  onClick() {
+    this.graficasS.get().subscribe(data => {
+      console.log(data);
+    });
+  }
+
   ngOnInit() {
+
 
     setInterval(() => {
       this.lineChartData = [
