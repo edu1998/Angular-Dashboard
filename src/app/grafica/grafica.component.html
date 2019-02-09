@@ -1,15 +1,15 @@
 <div fxLayout="row" fxLayoutAlign="center center">
-  <div fxFlex="50%">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>Graficas dinamicas</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [chartType]="'line'">
+    <div fxFlex="50%">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Graficas Dinamicas - Socket</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [chartType]="'line'">
         </canvas>
-      </mat-card-content>
-    </mat-card>
-  </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
 </div>
 
 <button mat-button (click)="onClick()">Click Me</button>

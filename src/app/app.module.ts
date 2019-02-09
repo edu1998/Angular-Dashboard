@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {HashLocationStrategy,LocationStrategy} from '@angular/common'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   MatAutocompleteModule,
@@ -53,7 +54,7 @@ import { GraficaComponent } from './grafica/grafica.component';
 import { ChartsModule } from 'ng2-charts';
 
 
-const config: SocketIoConfig = { url: 'http://localhost:1001', options: {} };
+const config: SocketIoConfig = { url: 'http://localhost:1001/', options: {} };
 
 
 @NgModule({
@@ -112,7 +113,7 @@ const config: SocketIoConfig = { url: 'http://localhost:1001', options: {} };
     ServicesModule,
     ChartsModule
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy,  useClass : HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
