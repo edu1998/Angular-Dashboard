@@ -9,26 +9,26 @@ export class GraficaService {
 
   constructor(
     private http: HttpClient,
-    private Socket_client : Socket
-  ) { 
+    private Socket_client: Socket
+  ) {
     this.chekStatusSocket();
   }
 
-  public Sstatus : boolean = false
+  public Sstatus = false;
 
-  chekStatusSocket () {
+  chekStatusSocket() {
     this.Socket_client.on('connect', (data) => {
       console.log('Conectado al servidor');
       this.Sstatus = true;
-    })
+    });
 
     this.Socket_client.on('disconnect', (data) => {
       console.log('Desconectado al servidor');
       this.Sstatus = false;
-    })
-  };
+    });
+  }
 
   get() {
-    return this.http.get(`http://localhost:1001/router`).pipe();
+    return this.http.get(`http://93.189.89.45:1002/router`).pipe();
   }
 }

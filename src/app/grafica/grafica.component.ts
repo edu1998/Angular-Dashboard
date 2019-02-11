@@ -1,4 +1,4 @@
-// import { TablasocketService } from './../services/tabla-socket/tablasocket.service';
+import { TablasocketService } from './../services/tabla-socket/tablasocket.service';
 import { Component, OnInit } from '@angular/core';
 import { GraficaService } from './../services/graficas/grafica.service';
 
@@ -16,13 +16,13 @@ export class GraficaComponent implements OnInit {
 
   constructor(
     private graficasS: GraficaService,
-    // private Socket_Service: TablasocketService
+    private Socket_Service: TablasocketService
   ) { }
 
   onClick() {
-    // this.graficasS.get().subscribe(data => {
-    //   console.log(data);
-    // });
+    this.graficasS.get().subscribe(data => {
+      console.log(data);
+    });
   }
 
   ngOnInit() {

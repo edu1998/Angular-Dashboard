@@ -11,6 +11,8 @@ export class PruebaComponent implements OnInit {
   }
   options: string[];
   states: Array<any>;
+  currentState: any;
+  poblacion: any;
 
 
   option: any;
@@ -31,7 +33,7 @@ export class PruebaComponent implements OnInit {
   filterState2(val: string) {
     if (val) {
       val = val.toLowerCase();
-      return this.states.filter(state => state.name.toLowerCase().startsWith(val))
+      return this.states.filter(state => state.name.toLowerCase().startsWith(val));
     }
 
     return this.states;
@@ -41,7 +43,7 @@ export class PruebaComponent implements OnInit {
   filterStateglobal(val: string, object: any, propiedad: string) {
     if (val) {
       console.log(val);
-            
+
       return object.filter(state => state[propiedad].startsWith(val));
     }
     return object;
@@ -80,12 +82,11 @@ export class PruebaComponent implements OnInit {
         // https://commons.wikimedia.org/wiki/File:Flag_of_Texas.svg
         flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Texas.svg'
       }
-    ]
+    ];
     this.option2 = this.states;
     this.object2 = this.filterStateglobal('', this.states, 'population');
     // console.log("este es mi filtro nojoda", this.filterState2("Arkansas"));
-    console.log("jsdsd");
-    
+
   }
 
 }

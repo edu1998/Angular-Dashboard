@@ -3,7 +3,7 @@
 <form class="example-form">
   <mat-form-field  class="example-full-width">
     <input placeholder="State" matInput [matAutocomplete]="Auto" name="state" #state="ngModel" [(ngModel)]="currentState"
-      (ngModelChange)="(option2 = filterState2(currentState,states,'name'))">
+      (ngModelChange)="(option2 = filterStateglobal(currentState,states,'name'))">
   </mat-form-field>
 
   <mat-autocomplete #Auto="matAutocomplete">
