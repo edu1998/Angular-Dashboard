@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { TablasocketService } from './../services/tabla-socket/tablasocket.service';
+// import { TablasocketService } from './../services/tabla-socket/tablasocket.service';
 import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-tablas-socket',
@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
 })
 export class TablasSocketComponent implements OnInit, OnDestroy {
   constructor(
-    private socket_Service: TablasocketService
+    // private socket_Service: TasblasocketService
   ) {
     this.data = { name: '', age: null };
     this.registros = [];
@@ -20,27 +20,27 @@ export class TablasSocketComponent implements OnInit, OnDestroy {
   elemento: HTMLElement;
 
   send() {
-    this.socket_Service.emitir('mensaje-emit', this.data);
+    // this.socket_Service.emitir('mensaje-emit', this.data);
   }
 
   ngOnInit() {
     this.elemento = document.getElementById('c_registros');
-    this.unsubscribe_registro = this.socket_Service.escuchar('registro').subscribe((data) => {
-      console.log('esto se recibe desde el servidor', data);
-      this.registros.push(data);
-      setTimeout(() => {
-        this.elemento.scrollTop = this.elemento.scrollHeight;
-      }, 50);
-    });
+    // this.unsubscribe_registro = this.socket_Service.escuchar('registro').subscribe((data) => {
+    //   console.log('esto se recibe desde el servidor', data);
+    //   this.registros.push(data);
+    //   setTimeout(() => {
+    //     this.elemento.scrollTop = this.elemento.scrollHeight;
+    //   }, 50);
+    // });
 
-    this.socket_Service.escuchar('hola-get').subscribe(data => {
-      console.log(data);
-    });
+    // this.socket_Service.escuchar('hola-get').subscribe(data => {
+    //   console.log(data);
+    // });
 
   }
 
   ngOnDestroy() {
-    this.unsubscribe_registro.unsubscribe();
+    // this.unsubscribe_registro.unsubscribe();
   }
 
 }

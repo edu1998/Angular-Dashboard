@@ -1,0 +1,20 @@
+<h1>
+  Realizar pago Payu Latam
+</h1>
+
+<div fxLayout="row" fxLayoutGap="30px">
+  <div fxFlex>
+    <mat-form-field>
+      <input matInput placeholder="Email" [(ngModel)]="buyerEmail">
+    </mat-form-field>
+  </div>
+  <div fxFlex>
+    <mat-form-field>
+      <input matInput placeholder="Amount" [(ngModel)]="amount">
+    </mat-form-field>
+  </div>
+  <div fxFlex fxFlexAlign="center">
+    <button mat-raised-button (click)="openDialog()">Realizar pago</button>
+  </div>
+</div>
+

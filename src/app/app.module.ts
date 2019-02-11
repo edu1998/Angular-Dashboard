@@ -52,6 +52,7 @@ import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { GraficaComponent } from './grafica/grafica.component';
 import { ChartsModule } from 'ng2-charts';
+import { PagosPayuComponent , DialogOverviewExampleDialog } from './pagos-payu/pagos-payu.component';
 
 
 const config: SocketIoConfig = { url: 'http://localhost:1001/', options: {} };
@@ -64,7 +65,9 @@ const config: SocketIoConfig = { url: 'http://localhost:1001/', options: {} };
     SidenavComponent,
     FormComponent,
     TablasSocketComponent,
-    GraficaComponent
+    GraficaComponent,
+    PagosPayuComponent,
+    DialogOverviewExampleDialog
   ],
   imports: [
     BrowserModule,
@@ -113,7 +116,8 @@ const config: SocketIoConfig = { url: 'http://localhost:1001/', options: {} };
     ServicesModule,
     ChartsModule
   ],
-  providers: [{provide: LocationStrategy,  useClass : HashLocationStrategy}],
-  bootstrap: [AppComponent]
+  providers: [],
+  bootstrap: [AppComponent],
+  entryComponents: [DialogOverviewExampleDialog],
 })
 export class AppModule { }
