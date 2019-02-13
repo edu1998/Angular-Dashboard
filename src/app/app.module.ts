@@ -51,8 +51,8 @@ import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { GraficaComponent } from './grafica/grafica.component';
 import { ChartsModule } from 'ng2-charts';
-import { PagosPayuComponent , DialogOverviewExampleDialog } from './pagos-payu/pagos-payu.component';
-
+import { PagosPayuComponent, DialogOverviewExampleDialog } from './pagos-payu/pagos-payu.component';
+import { NgxCurrencyModule } from 'ngx-currency';
 
 const config: SocketIoConfig = { url: 'http://localhost:1001/', options: {} };
 
@@ -113,7 +113,8 @@ const config: SocketIoConfig = { url: 'http://localhost:1001/', options: {} };
     MatFormFieldModule,
     FlexLayoutModule,
     ServicesModule,
-    ChartsModule
+    ChartsModule,
+    NgxCurrencyModule
   ],
   providers: [],
   bootstrap: [AppComponent],

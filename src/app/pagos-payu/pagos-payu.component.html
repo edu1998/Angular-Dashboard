@@ -10,8 +10,9 @@
   </div>
   <div fxFlex>
     <mat-form-field>
-      <input matInput placeholder="Amount" [(ngModel)]="amount">
+      <input matInput currencyMask [options]="{ prefix: '$ ',suffix : ' COP',align:'left'}" placeholder="Amount" [(ngModel)]="amount">
     </mat-form-field>
+    <p>{{amount}}</p>
   </div>
   <div fxFlex fxFlexAlign="center">
     <button mat-raised-button (click)="openDialog()">Realizar pago</button>
