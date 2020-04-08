@@ -5,12 +5,16 @@
 <div fxLayout="row" fxLayoutGap="30px">
   <div fxFlex>
     <mat-form-field>
-      <input matInput placeholder="Email" [(ngModel)]="buyerEmail">
+      <label>
+        <input matInput placeholder="Email" [(ngModel)]="buyerEmail">
+      </label>
     </mat-form-field>
   </div>
   <div fxFlex>
     <mat-form-field>
-      <input matInput currencyMask [options]="{ prefix: '$ ',suffix : ' COP',align:'left'}" placeholder="Amount" [(ngModel)]="amount">
+      <label>
+        <input matInput currencyMask [options]="{ prefix: '$ ',suffix : ' COP',align:'left'}" placeholder="Amount" [(ngModel)]="amount">
+      </label>
     </mat-form-field>
     <p>{{amount}}</p>
   </div>

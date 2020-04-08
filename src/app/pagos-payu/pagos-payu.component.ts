@@ -23,7 +23,6 @@ export class PagosPayuComponent implements OnInit, OnDestroy {
 
   openDialog() {
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
-      // width: '250px',
       data: { email: this.buyerEmail, amount: this.amount },
       disableClose: true,
       role: 'dialog'
