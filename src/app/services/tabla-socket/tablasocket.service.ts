@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, map, tap } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { Socket } from 'ngx-socket-io';
 
 
@@ -19,26 +17,17 @@ export class TablasocketService {
     this.statusS = false;
   }
 
-  private url = 'http://192.168.2.7:8080/';
+  private url = 'http://93.189.89.45:1002/';
   public statusS = false;
-
-  holaService() {
-    console.log('hola desde socket service');
-  }
-
-
-  // get(): Observable<any> {
-  //   return this.http.get(`${this.url}crud`).pipe();
-  // }
 
   checkoutSatatus() {
     this.socketS.on('connect', () => {
-      console.log('conectado al servidor');
+      console.log('conectado al servidor socket');
       this.statusS = true;
     });
 
     this.socketS.on('disconnect', () => {
-      console.log('desconectado al servidor');
+      console.log('desconectado al servidor socket');
       this.statusS = false;
     });
   }

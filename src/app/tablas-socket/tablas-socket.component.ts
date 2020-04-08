@@ -8,13 +8,13 @@ import { Subscription } from 'rxjs';
 })
 export class TablasSocketComponent implements OnInit, OnDestroy {
   constructor(
-    private socket_Service: TablasocketService
+    public socket_Service: TablasocketService
   ) {
     this.data = { name: '', age: null };
     this.registros = [];
   }
 
-  private data: { name: string, age: number };
+  public data: { name: string, age: number };
   private unsubscribe_registro: Subscription;
   public registros: Array<any>;
   elemento: HTMLElement;
@@ -33,10 +33,10 @@ export class TablasSocketComponent implements OnInit, OnDestroy {
       }, 50);
     });
 
-    // this.socket_Service.holaService();
-    // this.socket_Service.get().subscribe((resp) => {
-    //   console.log(resp);
-    // });
+    this.socket_Service.escuchar('hola-get').subscribe(data => {
+      console.log(data);
+    });
+
   }
 
   ngOnDestroy() {
